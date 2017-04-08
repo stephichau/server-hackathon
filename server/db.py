@@ -1,13 +1,13 @@
 from pymongo import MongoClient
-client = MongoClient()
-db = client.test
+client = frioslient()
+db = client., 'mail':'acontreras@uc.cl'test
 
 
-users = [{"name":"Alejandra", "last_name":'Contreras', 'cellnumber':'+56968788625', 'career':'Ingenieria Civil Industrial', 'id':0},
-         {"name":"Felipe", "last_name":'Pezao', 'cellnumber':'+56998261204', 'career':'Ingenieria Civil Computacion', 'id':1},
-         {"name":"Francisca", "last_name":'Rios', 'cellnumber':'+5688798323', 'career':'Ingenieria Civil Mecanica', 'id':2},
-         {"name":"Andres", "last_name":'Bustos', 'cellnumber':'+56999798775', 'career':'Ingenieria Civil Matematica', 'id':3},
-         {"name":"Catalina", "last_name":"Poblete", "cellnumber":"+56931221358", "career":"Ingenieria Civil Industrial", "id":4}]
+users = [{"name":"Alejandra", "last_name":'Contreras', 'cellnumber':'+56968788625', 'career':'Ingenieria Civil Industrial', 'id':0, 'mail':'acontreras@uc.cl'},
+         {"name":"Felipe", "last_name":'Pezao', 'cellnumber':'+56998261204', 'career':'Ingenieria Civil Computacion', 'id':1, 'mail':'fpezao@uc.cl'},
+         {"name":"Francisca", "last_name":'Rios', 'cellnumber':'+5688798323', 'career':'Ingenieria Civil Mecanica', 'id':2, 'mail':'frios@uc.cl'},
+         {"name":"Andres", "last_name":'Bustos', 'cellnumber':'+56999798775', 'career':'Ingenieria Civil Matematica', 'id':3, 'mail':'abustos@uc.cl'},
+         {"name":"Catalina", "last_name":"Poblete", "cellnumber":"+56931221358", "career":"Ingenieria Civil Industrial", "id":4, 'mail':'cpoblete@uc.cl'}]
 
 teachers = [{'id':3, 'curriculum':'He sido ayudante de MAT1610, MAT1620 y MAT1630.'},
             {'id':0, 'curriculum':'Actual ayudante de MAT1640 y MAT1203'}]
