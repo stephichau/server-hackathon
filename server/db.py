@@ -1,6 +1,6 @@
 from pymongo import MongoClient
-client = frioslient()
-db = client., 'mail':'acontreras@uc.cl'test
+client = MongoClient()
+db = client.test
 
 
 users = [{"name":"Alejandra", "last_name":'Contreras', 'cellnumber':'+56968788625', 'career':'Ingenieria Civil Industrial', 'id':0, 'mail':'acontreras@uc.cl'},
