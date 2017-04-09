@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, render_template, request
 from pymongo import MongoClient
+from random import randint
 
 app = Flask(__name__)
 
@@ -50,6 +51,15 @@ def get_teachers_by_course(sigla):
         del teacher['_id']
         results.append(teacher)
     return jsonify({"teachers": results})
+
+@app.route('/silicitud/<course>/<teacher_id>/<student_id>')
+def create_solicitude(course, teacher_id, student_id):
+    id_solicitud = randint(00000000, 99999999)
+    db.solicitudes.insert_one({'course':course, 'user_id':student_id,
+                               'teacher_id':teacher_id,
+                               'id': id_solicitud,
+                               'state':'PENDING'})
+    return jsonify({'id_solicitud':id_solicitud})
 
 @app.route("/create_user", methods=['GET', 'POST'])
 def create_user():

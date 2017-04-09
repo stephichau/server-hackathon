@@ -1,4 +1,6 @@
 from pymongo import MongoClient
+import sys
+
 client = MongoClient()
 db = client.test
 
@@ -18,6 +20,8 @@ courses = [{'sigla':'MAT1610', 'name':'Calculo I', 'teachers':[3]},
            {'sigla':'MAT1640', 'name':'Ecuaciones Diferenciales', 'teachers':[0]},
            {'sigla':'MAT1203', 'name':'Algebra Lineal', 'teachers':[0]}]
 
+solicitudes = []
+
 def fill_db():
     for user in users:
         db.users.insert_one(user)
@@ -25,12 +29,25 @@ def fill_db():
         db.teachers.insert_one(teacher)
     for course in courses:
         db.courses.insert_one(course)
+    for solicitud in solicitudes:
+        db.solicitudes.insert_one(solicitud)
 
 #a = db.users.find()
 #db.users.delete_many({'name':'Alejandra'})
 
 def delete_db():
-    pass
+    db.users.remove({})
+    db.teachers.remove({})
+    db.courses.remove({})
+    db.solicitudes.remove({})
 
 if __name__ == '__main__':
-    fill_db()
+    if len(sys.argv) != 2:
+        print('Usage: python db.py create/remove')
+    elif sys.argv[1] == 'create':
+        fill_db()
+    elif sys.argv[1] == 'remove':
+        delete_db()
+    else:
+        print('Usage: python db.py create/remove')
+    #fill_db()
